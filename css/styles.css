@@ -429,8 +429,11 @@ button:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--overlay);
-  transition: background 200ms ease;
+  background: transparent;
+  backdrop-filter: blur(0);
+  transition:
+    background 200ms ease,
+    backdrop-filter 200ms ease;
 }
 
 .hero-tile__image {
@@ -471,11 +474,13 @@ button:focus-visible {
 .hero-tile:focus-visible {
   transform: scale(1.02);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  color: #000000;
 }
 
 .hero-tile:hover::before,
 .hero-tile:focus-visible::before {
-  background: var(--overlay-hover);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
 }
 
 /* Ensure focus ring is visible on hero tiles */
