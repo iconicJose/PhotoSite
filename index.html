@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography Portfolio - Home</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-link">HOME</a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="portfolio.html">Portfolio</a></li>
+          <li class="nav-item"><a href="prints.html">Prints</a></li>
+          <li class="nav-item"><a href="about.html">About</a></li>
+          <li class="nav-item"><a href="contact.html">Contact</a></li>
+          <li class="nav-item">
+            <button type="button" class="nav-search-btn" aria-label="Search">
+              &#128269;
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="header-search" hidden>
+      <label class="visually-hidden" for="site-search-input">Search site</label>
+      <input id="site-search-input" type="text" placeholder="Search..." />
+    </div>
+  </header>
+
+  <main>
+    <div class="content-wrapper">
+      <section class="hero-grid" aria-label="Featured photography categories">
+        <a href="featured.html" class="hero-tile hero-tile--featured">
+          <span class="hero-tile__label">Featured</span>
+          <img
+            src="img/DevilsLake  paranorma.jpg"
+            alt="Wide panoramic view of lake and hills at sunset"
+            class="hero-tile__image"
+          >
+        </a>
+
+        <a href="films.html" class="hero-tile hero-tile--films">
+          <span class="hero-tile__label">Films</span>
+          <img
+            src="img/Sunset at cavepoint.jpg"
+            alt="Silhouette on rock over water at sunset with purple-orange sky"
+            class="hero-tile__image"
+          >
+        </a>
+
+        <a href="stills.html" class="hero-tile hero-tile--stills">
+          <span class="hero-tile__label">Stills</span>
+          <img
+            src="img/single minimalist crow.jpg"
+            alt="Solitary bird in flight against clear blue sky"
+            class="hero-tile__image"
+          >
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
