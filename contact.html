@@ -14,7 +14,6 @@
       <nav class="main-nav" aria-label="Main navigation">
         <ul class="nav-list">
           <li class="nav-item"><a href="portfolio.html">Portfolio</a></li>
-          <li class="nav-item"><a href="prints.html">Prints</a></li>
           <li class="nav-item"><a href="about.html">About</a></li>
           <li class="nav-item"><a href="contact.html">Contact</a></li>
           <li class="nav-item">
@@ -34,8 +33,78 @@
 
   <main>
     <div class="content-wrapper">
-      <section class="page-placeholder" aria-label="Contact placeholder">
-        <div>(4) In progress!</div>
+      <section class="stills-section" aria-label="Social links">
+        <h1 class="section-heading">Links</h1>
+        <div class="contact-grid">
+          <a class="contact-link" href="https://instagram.com/lconic.jose" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link__icon">
+              <img src="https://cdn.simpleicons.org/instagram/000000" alt="Instagram icon">
+            </span>
+            <span class="contact-link__label">Instagram</span>
+          </a>
+
+          <a class="contact-link" href="https://www.youtube.com/@GoOutSometime" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link__icon">
+              <img src="https://cdn.simpleicons.org/youtube/000000" alt="YouTube icon">
+            </span>
+            <span class="contact-link__label">YouTube</span>
+          </a>
+
+          <a class="contact-link" href="https://open.spotify.com/user/pollo_man?si=9HP4c3UBQ7S_DwsZHZrC-A" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link__icon">
+              <img src="https://cdn.simpleicons.org/spotify/000000" alt="Spotify icon">
+            </span>
+            <span class="contact-link__label">Spotify</span>
+          </a>
+
+          <a class="contact-link" href="https://www.tiktok.com/@iconic.jose" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link__icon">
+              <img src="https://cdn.simpleicons.org/tiktok/000000" alt="TikTok icon">
+            </span>
+            <span class="contact-link__label">TikTok</span>
+          </a>
+
+          <a class="contact-link" href="https://www.snapchat.com/add/iconic-jose" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link__icon">
+              <img src="https://cdn.simpleicons.org/snapchat/000000" alt="Snapchat icon">
+            </span>
+            <span class="contact-link__label">Snapchat</span>
+          </a>
+
+          <a class="contact-link" href="https://linktr.ee/admin/links" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link__icon">
+              <img src="https://cdn.simpleicons.org/linktree/000000" alt="Linktree icon">
+            </span>
+            <span class="contact-link__label">Linktree</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="stills-section" aria-label="Email contact form">
+        <h2 class="section-heading">Email</h2>
+        <form
+          class="contact-form"
+          action="mailto:josecr1304@gmail.com"
+          method="POST"
+          enctype="text/plain"
+        >
+          <div class="contact-form-row">
+            <label for="contact-name">Name</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name">
+          </div>
+
+          <div class="contact-form-row">
+            <label for="contact-email">Email address</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email">
+          </div>
+
+          <div class="contact-form-row">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message"></textarea>
+          </div>
+
+          <button type="submit">Send</button>
+        </form>
       </section>
     </div>
   </main>
