@@ -5,6 +5,18 @@
   --overlay: rgba(0, 0, 0, 0.35);
   --overlay-hover: rgba(0, 0, 0, 0.55);
   --focus-outline: #111111;
+  --plum: #362b32;
+  --header-border: #e0e0e0;
+}
+
+body[data-theme="dark"] {
+  --bg-body: #362b32;
+  --bg-header: #362b32;
+  --text-main: #f5f5f5;
+  --overlay: rgba(0, 0, 0, 0.5);
+  --overlay-hover: rgba(0, 0, 0, 0.7);
+  --focus-outline: #f5f5f5;
+  --header-border: rgba(255, 255, 255, 0.06);
 }
 
 /* Base reset and typography */
@@ -68,7 +80,7 @@ button:focus-visible {
 
 .site-header {
   background-color: var(--bg-header);
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid var(--header-border);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
@@ -80,20 +92,6 @@ button:focus-visible {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-}
-
-.header-search {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px 12px;
-}
-
-.header-search input {
-  width: 100%;
-  padding: 8px 10px;
-  border-radius: 2px;
-  border: 1px solid #cccccc;
-  background-color: #ffffff;
 }
 
 .content-wrapper {
@@ -123,7 +121,7 @@ button:focus-visible {
   font-size: 0.85rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #555555;
+  color: #ffffff;
 }
 
 .profile-layout {
@@ -188,6 +186,79 @@ button:focus-visible {
   font-size: 1rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: #333333;
+}
+
+body[data-theme="dark"] .contact-link__label {
+  color: var(--plum);
+}
+
+/* Theme toggle */
+
+.theme-toggle {
+  position: relative;
+  width: 56px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.7);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  cursor: pointer;
+  color: #111111;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+body[data-theme="dark"] .theme-toggle {
+  background: rgba(10, 10, 12, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #f5f5f5;
+}
+
+.theme-toggle__thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+body[data-theme="dark"] .theme-toggle__thumb {
+  background: var(--plum);
+}
+
+.theme-toggle__icon {
+  font-size: 0.75rem;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  opacity: 0.55;
+  transition: opacity 180ms ease;
+}
+
+.theme-toggle__icon--sun {
+  margin-right: 2px;
+}
+
+.theme-toggle__icon--moon {
+  margin-left: 2px;
+}
+
+.theme-toggle--dark .theme-toggle__thumb {
+  transform: translateX(24px);
+}
+
+.theme-toggle--dark .theme-toggle__icon--moon,
+.theme-toggle:not(.theme-toggle--dark) .theme-toggle__icon--sun {
+  opacity: 1;
 }
 
 .contact-form {
@@ -207,7 +278,7 @@ button:focus-visible {
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #555555;
+  color: #ffffff;
 }
 
 .contact-form-row input,
@@ -228,7 +299,7 @@ button:focus-visible {
   padding: 10px 18px;
   border-radius: 4px;
   border: none;
-  background-color: #111111;
+  background-color: var(--plum);
   color: #ffffff;
   font-size: 0.85rem;
   letter-spacing: 0.15em;
@@ -237,7 +308,7 @@ button:focus-visible {
 }
 
 .contact-form button[type="submit"]:hover {
-  background-color: #000000;
+  background-color: #2c2129;
 }
 
 /* Lightbox */
@@ -296,7 +367,7 @@ button:focus-visible {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: #000;
+  background: #050507;
   border: none;
 }
 
@@ -385,6 +456,15 @@ button:focus-visible {
   color: #000000;
 }
 
+body[data-theme="dark"] .logo-link,
+body[data-theme="dark"] .nav-item a {
+  color: #ffffff;
+}
+
+body[data-theme="dark"] .nav-item a:hover {
+  color: #f5f5f5;
+}
+
 .nav-search-btn {
   border: none;
   background: transparent;
@@ -418,7 +498,7 @@ button:focus-visible {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-size: 1rem;
-  background-color: #000000;
+  background-color: var(--plum);
   transform: translateZ(0);
   transition:
     transform 200ms ease,
@@ -429,11 +509,8 @@ button:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: transparent;
-  backdrop-filter: blur(0);
-  transition:
-    background 200ms ease,
-    backdrop-filter 200ms ease;
+  background: var(--overlay);
+  transition: background 200ms ease;
 }
 
 .hero-tile__image {
@@ -464,6 +541,10 @@ button:focus-visible {
   z-index: 1;
   text-align: center;
   font-weight: 500;
+  display: inline-block;
+  transition:
+    transform 160ms ease,
+    font-weight 160ms ease;
 }
 
 .hero-tile--stills {
@@ -474,13 +555,17 @@ button:focus-visible {
 .hero-tile:focus-visible {
   transform: scale(1.02);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-  color: #000000;
 }
 
 .hero-tile:hover::before,
 .hero-tile:focus-visible::before {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(4px);
+  background: var(--overlay-hover);
+}
+
+.hero-tile:hover .hero-tile__label,
+.hero-tile:focus-visible .hero-tile__label {
+  font-weight: 700;
+  transform: scale(1.12);
 }
 
 /* Ensure focus ring is visible on hero tiles */

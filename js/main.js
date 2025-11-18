@@ -1,25 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
-  var searchButton = document.querySelector(".nav-search-btn");
-  var searchContainer = document.querySelector(".header-search");
-  var searchInput = document.getElementById("site-search-input");
+  var themeToggle = document.querySelector(".theme-toggle");
+  var root = document.body;
 
-  if (searchButton) {
-    searchButton.addEventListener("click", function () {
-      console.log("Search clicked");
-
-      if (!searchContainer) {
-        return;
+  try {
+    var storedTheme = window.localStorage.getItem("theme");
+    if (storedTheme === "dark") {
+      root.setAttribute("data-theme", "dark");
+      if (themeToggle) {
+        themeToggle.classList.add("theme-toggle--dark");
       }
+    }
+  } catch (e) {
+    // localStorage might be blocked; ignore
+  }
 
-      var isHidden = searchContainer.hasAttribute("hidden");
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
+      var isDark = root.getAttribute("data-theme") === "dark";
 
-      if (isHidden) {
-        searchContainer.removeAttribute("hidden");
-        if (searchInput) {
-          searchInput.focus();
-        }
+      if (isDark) {
+        root.removeAttribute("data-theme");
+        themeToggle.classList.remove("theme-toggle--dark");
+        try {
+          window.localStorage.setItem("theme", "light");
+        } catch (e) {}
       } else {
-        searchContainer.setAttribute("hidden", "");
+        root.setAttribute("data-theme", "dark");
+        themeToggle.classList.add("theme-toggle--dark");
+        try {
+          window.localStorage.setItem("theme", "dark");
+        } catch (e) {}
       }
     });
   }
