@@ -454,12 +454,22 @@ body[data-theme="dark"] .theme-toggle__thumb {
   gap: 12px;
 }
 
+.film-card--short {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .film-video {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #050507;
   border: none;
+}
+
+.film-video--short {
+  aspect-ratio: 9 / 16;
 }
 
 .film-meta {
@@ -477,6 +487,10 @@ body[data-theme="dark"] .theme-toggle__thumb {
 .film-desc {
   color: #555555;
   font-size: 0.95rem;
+}
+
+body[data-theme="dark"] .film-desc {
+  color: #ddd5e4;
 }
 
 /* Featured gallery */
