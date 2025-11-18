@@ -14,6 +14,21 @@ document.addEventListener("DOMContentLoaded", function () {
     // localStorage might be blocked; ignore
   }
 
+  // Ensure all images lazy-load by default
+  try {
+    var allImages = document.querySelectorAll("img");
+    allImages.forEach(function (img) {
+      if (!img.hasAttribute("loading")) {
+        img.setAttribute("loading", "lazy");
+      }
+      if (!img.hasAttribute("decoding")) {
+        img.setAttribute("decoding", "async");
+      }
+    });
+  } catch (e) {
+    // If something goes wrong here, don't block the rest of the script
+  }
+
   if (themeToggle) {
     themeToggle.addEventListener("click", function () {
       var isDark = root.getAttribute("data-theme") === "dark";
